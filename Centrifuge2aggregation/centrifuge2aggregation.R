@@ -30,7 +30,7 @@
 #      prepareDatabase("TaxonomizR_db/NCBItax.sql")
 #
 # Usage:
-# source("path/to/process_centrifuge.R")
+# source("path/to/centrifuge2aggregation.R")
 # process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
 #
 # Example:
