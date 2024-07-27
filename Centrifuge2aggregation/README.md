@@ -22,6 +22,12 @@ To use this script, you need to install the following R packages:
 install.packages(c("tidyverse", "taxonomizr"))
 ```
 
+Note that the current script has been developped and tested using the following versions:
+
+* R 4.3.3
+* TaxonomizR 0.10.6
+* tidyverse 2.0.0
+
 ### TaxonomizR Database
 
 You also need to set up the TaxonomizR NCBI database to retrieve the most up to date taxonomic classifications. 
@@ -56,6 +62,8 @@ Download and save the script as process_centrifuge.R.
 In your R environment or script, source the file:
 
 ```r
+library(tidyverse)
+library(taxonomizr)
 source("path/to/process_centrifuge.R")
 
 # Call the process_centrifuge_files function with your directory and database paths:

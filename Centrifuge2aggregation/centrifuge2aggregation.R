@@ -1,3 +1,49 @@
+#######################################################################################
+# Centrifuge Report Parser
+#######################################################################################
+# Author: Alise Ponsero
+# Date: 27.07.24
+# Version: 1.0
+#
+# Description:
+# This script processes Centrifuge metagenomic classification reports, updating taxonomy
+# classifications, aggregating read counts, and handling unclassified entries.
+#
+# Input: Centrifuge report files (ending with "_report.txt")
+# Output: 
+#   - "excluded_taxa.tsv": Entries not classified in the new NCBI taxonomy
+#   - "parsed_centrifuge.tsv": Final aggregated data
+#
+# Dependencies:
+#   - R 4.3.3
+#   - tidyverse 2.0.0
+#   - taxonomizr 0.10.6
+#
+# Setup:
+# 1. Install required packages:
+#    install.packages(c("tidyverse", "taxonomizr"))
+#
+# 2. Set up TaxonomizR NCBI database:
+#    For QIB users: Available at /qib/platforms/Informatics/transfer/outgoing/databases/taxonomizR
+#    For others: 
+#      library(taxonomizr)
+#      prepareDatabase("TaxonomizR_db/NCBItax.sql")
+#
+# Usage:
+# source("path/to/process_centrifuge.R")
+# process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
+#
+# Example:
+# directory_path <- "path/to/your/centrifuge/reports"
+# ncbi_db_path <- "path/to/your/TaxonomizR_db/NCBItax.sql"
+# filepattern <- "_report.txt"
+# process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
+#
+# Note: Ensure sufficient disk space and memory for large metagenomic datasets.
+#######################################################################################
+
+
+
 process_centrifuge_files <- function(directory_path, ncbi_db_path, filepattern) {
   # Get all files ending with "pattern"
   files <- list.files(directory_path, pattern = filepattern, full.names = TRUE)
@@ -91,10 +137,3 @@ process_centrifuge_files <- function(directory_path, ncbi_db_path, filepattern) 
     cat("Parsed report saved as:", basename(output_file), "\n\n")
   }
 }
-
-# Usage example:
-# Replace with your actual directory and database paths
-# directory_path <- "path/to/your/directory"
-# ncbi_db_path <- "path/to/your/TaxonomizR_db/NCBItax_25.07.24.sql"
-# filepattern <- "_report.txt"
-# process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
