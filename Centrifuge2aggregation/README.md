@@ -58,17 +58,18 @@ Note: The database preparation might take several hours and require significant 
 
 ## How do I use this parser ?
 
-Download and save the script as process_centrifuge.R.
+If you can easily mount the database (mac systems) or have the taxonomizR database on your computer, you can download and save the script as centrifuge2aggregation.R.
+
 In your R environment or script, source the file:
 
 ```r
 library(tidyverse)
 library(taxonomizr)
-source("path/to/process_centrifuge.R")
+source("path/to/centrifuge2aggregation.R")
 
 # Call the process_centrifuge_files function with your directory and database paths:
 
-Copydirectory_path <- "path/to/your/centrifuge/reports"
+directory_path <- "path/to/your/centrifuge/reports"
 ncbi_db_path <- "path/to/your/TaxonomizR_db/NCBItax.sql"
 filepattern <- "_report.txt"
 process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
@@ -77,5 +78,43 @@ process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
 Replace "path/to/your/centrifuge/reports" with the path to the directory containing your Centrifuge report files, and "path/to/your/TaxonomizR_db/NCBItax.sql" with the path to your TaxonomizR database file.
 
 The script will process all files ending by "report.txt" in the specified directory, creating corresponding parsed and excluded taxa files for each input file.
+
+## Run the script on QIB cloud
+
+To use the parser on QIB cloud, you will need to first install the tidyverse and taxonomizR packages in a conda environment: 
+
+```bash
+
+conda create -n taxonomizR conda-forge::r-tidyverse conda-forge::r-taxonomizr
+
+conda activate taxonomizR
+
+```
+
+Once your conda environment is created and activated, you can use R and this parser. Download the parser from github:
+
+```bash
+
+wget https://raw.githubusercontent.com/aponsero/simple_parsers/main/Centrifuge2aggregation/centrifuge2aggregation.R
+
+```
+
+Then you can use the parser as above: 
+
+```r
+library(tidyverse)
+library(taxonomizr)
+source("path/to/centrifuge2aggregation.R")
+
+# Call the process_centrifuge_files function with your directory and database paths:
+
+directory_path <- "path/to/your/centrifuge/reports"
+ncbi_db_path <- "path/to/your/TaxonomizR_db/NCBItax.sql"
+filepattern <- "_report.txt"
+process_centrifuge_files(directory_path, ncbi_db_path, filepattern)
+
+```
+
+Make sure that the QIB Informatics folder is mounted in your VM by following [these instructions](https://quadram-institute.atlassian.net/wiki/spaces/BSUP/pages/19497039/How+to+access+data+on+a+QIB+Cloud+VM#How-to-mount-incoming/outgoing) in order to have access to the taxonomizR database.
 
 
