@@ -103,7 +103,7 @@ process_centrifuge_files <- function(directory_path, ncbi_db_path, filepattern) 
     tax_levels <- c("species", "genus", "family", "order", "class", "phylum", "superkingdom")
     
     find_lowest_level <- function(row) {
-      for (level in rev(tax_levels)) {
+      for (level in (tax_levels)) {
         if (!is.na(row[[level]])) {
           return(level)
         }
