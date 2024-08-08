@@ -1,0 +1,6 @@
+[submodule "MetaphlanParser/8072901f73a012570455ac2cbfc6d486"]
+	path = MetaphlanParser/8072901f73a012570455ac2cbfc6d486
+	url = https://gist.github.com/CaileanCarter/8072901f73a012570455ac2cbfc6d486
+[submodule "EMBLtoFASTA"]
+	path = EMBLtoFASTA
+	url = https://github.com/CaileanCarter/EMBLtoFASTA.git
