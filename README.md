@@ -12,4 +12,6 @@
 
  * [read_metaphlan.py](MetaphlanParser) : aggregate the number of reads at a given taxonomic level.
 
-  * [EMBLtoFASTA.py](EMBLtoFASTA) : convert EMBL files into pure fasta format.
+ * [EMBLtoFASTA.py](EMBLtoFASTA) : convert EMBL files into pure fasta format.
+
+ * [reambap.py](ReAmBaP) : Remove ambiguous base pairs from FASTA files.

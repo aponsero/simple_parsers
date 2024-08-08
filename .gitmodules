@@ -4,3 +4,6 @@
 [submodule "EMBLtoFASTA"]
 	path = EMBLtoFASTA
 	url = https://github.com/CaileanCarter/EMBLtoFASTA.git
+[submodule "ReAmBaP"]
+	path = ReAmBaP
+	url = https://github.com/CaileanCarter/ReAmBaP.git
